@@ -1,0 +1,11 @@
+<div class="form-container">
+    <p class="title">Register Now!</p>
+    <form [formGroup]="registerForm" class="form">
+        <input type="text" class="input" formControlName="name" placeholder="Name">
+        <input type="email" class="input" formControlName="email" placeholder="Email">
+        <input type="password" class="input" formControlName="password" placeholder="Password">
+        <button mat-button class="form-btn my-color" (click)="onSubmit()"
+        [disabled]="isSubmitting || registerForm.invalid">Sing up</button>
+    </form>
+    <button mat-button [routerLink]="['/auth/login']">Back</button>
+</div>

@@ -1,0 +1,4 @@
+.container {
+    display: flex;
+    height: 100vh; /* Asegura que ambos elementos ocupen toda la altura de la página */
+  }

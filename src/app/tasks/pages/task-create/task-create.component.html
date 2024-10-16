@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Create Task</h2>
+<form [formGroup]="formCreate">
+<mat-dialog-content>
+        <div class="form-container">
+            <mat-form-field class="w-100">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description">
+            </mat-form-field>
+            
+            <mat-form-field class="w-100">
+              <mat-label>Status</mat-label>
+              <mat-select formControlName="status">
+                <mat-option value="pending">Pending</mat-option>
+                <mat-option value="in_process">In Process</mat-option>
+                <mat-option value="complete">Complete</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-buttons" align="end">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button class="my-color" (click)="onSave()" color="primary" cdkFocusInitial>Submit</button>
+</mat-dialog-actions>
+</form>
+

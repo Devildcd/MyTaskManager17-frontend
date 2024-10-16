@@ -1,0 +1,11 @@
+.background-section {
+    background-image: url('/assets/img/Stars_Rivers_Scenery_451528.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el div */
+    background-position: center; /* Centra la imagen */
+    height: 100vh; /* Altura de la sección */
+    display: flex; /* Permite centrar el contenido vertical y horizontalmente */
+    flex-direction: column; /* Dirección del flex */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    color: white; /* Cambia el color del texto para que se vea sobre la imagen */
+}

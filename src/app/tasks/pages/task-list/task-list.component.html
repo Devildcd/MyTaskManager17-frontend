@@ -1,0 +1,85 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Users</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="group">
+      @if(!searchTerm) {
+      <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+        <g>
+          <path
+            d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+          </path>
+        </g>
+      </svg>
+      }@else {
+      <svg viewBox="0 0 24 24" (click)="clearSearch()" aria-hidden="true" class="icon">
+        <g>
+          <path
+            d="M20.49 5.51c.287-.288.287-.75 0-1.038-.288-.287-.75-.287-1.038 0L12 10.962 4.549 3.513c-.287-.287-.75-.287-1.038 0s-.287.75 0 1.038L10.962 12l-7.45 7.451c-.287.287-.287.75 0 1.038.143.143.329.214.515.214s.372-.072.515-.214L12 13.038l7.451 7.451c.143.143.329.214.515.214s.372-.072.515-.214c.287-.288.287-.75 0-1.038L13.038 12l7.451-7.451z">
+          </path>
+        </g>
+      </svg>
+      }
+      <input class="input" type="search" [(ngModel)]="searchTerm" (input)="filterData()" placeholder="Buscar" />
+    </div>
+    @if(!loading){
+    <app-loader/>
+    }@else {
+    <table mat-table [dataSource]="dataSource" class="table table-hover custom-table">
+
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell (click)="$event.stopPropagation()" *matCellDef="let element"><a (click)="showTask(element.id)"
+            (keydown)="showTask(element.id)" tabindex="0">{{ element.name }}</a></td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell (click)="$event.stopPropagation()" *matCellDef="let element"><a a (click)="showTask(element.id)"
+            (keydown)="showTask(element.id)" tabindex="0">{{ element.status }}</a></td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell (click)="$event.stopPropagation()" *matCellDef="let element">
+          <div class="actions-buttons">
+            <button mat-mini-fab (click)="editTask(element.id)" color="basic">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-mini-fab (click)="onDelete(element.id)" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+      </tr>
+    </table>
+    }
+
+
+    <mat-paginator #paginator class="demo-paginator paginador-transparente" (page)="handlePageEvent($event)"
+      [length]="length" [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+      [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+      [pageIndex]="pageIndex" aria-label="Select page">
+    </mat-paginator>
+
+  </mat-card-content>
+</mat-card>

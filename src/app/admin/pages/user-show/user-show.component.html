@@ -1,0 +1,43 @@
+@if(loading){
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{user?.name}}</mat-card-title>
+      <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
+    </mat-card-header>
+    @if(dataSource.data.length > 0){
+      <mat-card-content> 
+        <table mat-table [dataSource]="dataSource" class="table table-hover custom-table">
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Asociated Tasks</th>
+            <td mat-cell (click)="$event.stopPropagation()" *matCellDef="let element"><a>{{ element.name }}</a></td>
+          </ng-container>
+    
+          <ng-container matColumnDef="status">
+            <th mat-header-cell class="text-warning" *matHeaderCellDef></th>
+            <td mat-cell (click)="$event.stopPropagation()" *matCellDef="let element"><a>{{ element.status }}</a></td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+
+        <mat-paginator #paginator
+  class="demo-paginator paginador-transparente"
+                 (page)="handlePageEvent($event)"
+                 [length]="length"
+                 [pageSize]="pageSize"
+                 [disabled]="disabled"
+                 [showFirstLastButtons]="showFirstLastButtons"
+                 [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                 [hidePageSize]="hidePageSize"
+                 [pageIndex]="pageIndex"
+                 aria-label="Select page">
+  </mat-paginator>
+
+  </mat-card-content>
+    }
+  </mat-card>
+}
+ 

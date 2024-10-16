@@ -1,0 +1,19 @@
+{
+    "users": [
+      { "id": 1, "name": "admin", "password": "admin123", "role": "Admin" },
+      { "id": 2, "name": "client1", "password": "client123", "role": "User" },
+      { "id": 3, "name": "client2", "password": "client456", "role": "User" }
+    ],
+    "tasks": [
+      { "id": 1, "name": "Task 1", "description": "First task", "status": "pending", "user_id": 2 },
+      { "id": 2, "name": "Task 2", "description": "Second task", "status": "in progress", "user_id": 2 },
+      { "id": 3, "name": "Task 3", "description": "Third task", "status": "completed", "user_id": 3 },
+      { "id": 4, "name": "Task 4", "description": "Fourth task", "status": "pending", "user_id": 3 },
+      { "id": 5, "name": "Task 5", "description": "Fifth task", "status": "in progress", "user_id": 2 },
+      { "id": 6, "name": "Task 6", "description": "Sixth task", "status": "completed", "user_id": 3 },
+      { "id": 7, "name": "Task 7", "description": "Seventh task", "status": "pending", "user_id": 2 },
+      { "id": 8, "name": "Task 8", "description": "Eighth task", "status": "in progress", "user_id": 3 },
+      { "id": 9, "name": "Task 9", "description": "Ninth task", "status": "completed", "user_id": 2 },
+      { "id": 10, "name": "Task 10", "description": "Tenth task", "status": "pending", "user_id": 1 }
+    ]
+  }

@@ -1,0 +1,20 @@
+
+<div class="sidebar" data-color="purple" data-background-color="black" 
+                     [style.background-image]="'url(./assets/img/Stars_Rivers_Scenery_451528.jpg)'"
+                     style="background-size: cover; background-position: center;">
+  <div class="logo"><a [routerLink]="['/dashboard']" class="simple-text logo-normal">
+      Task Manager <i class="fas fa-tasks"></i>
+    </a></div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      @for(item of menuItems; track item) {
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="item.path">
+            <i class="{{ item.icon }}"></i>
+            <p>{{ item.label }}</p>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</div>

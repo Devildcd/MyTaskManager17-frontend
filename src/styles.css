@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
+@import 'assets/css/material-dashboard.min.css';
+@import 'material-icons/iconfont/material-icons.css';
+@import 'assets/icons/fontawesome-free/css/all.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* Material-table */
+table {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  table th {
+    background-color: rgb(221, 220, 220) !important;
+    font-size: 16px !important;
+    /* color: rgb(218, 17, 17) !important; */
+  }
+
+  table tr:nth-child(even) {
+    background-color: rgb(245, 244, 244);
+  }
+
+  table tr:hover {
+    background-color: rgb(228, 203, 225) !important; 
+  }
+
+  /* actions-buttons*/
+.actions-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+  /* Dialog Reactive-forms create-edit */
+  .form-container {
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .mat-form-field {
+    width: 100%; 
+  }
+  
+  .dialog-buttons button {
+    min-width: 100px;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+
+  .my-color {
+    background-color: #9c27b0 !important;
+  }
+
+    
+
+
