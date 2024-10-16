@@ -48,7 +48,7 @@ export default class UserListComponent implements OnInit, AfterViewInit {
   users: User[] = [];
   loading = false;
   searchTerm: string = '';
-
+ 
   displayedColumns: string[] = ['select', 'name', 'role', 'actions'];
   dataSource = new MatTableDataSource<User>([]);
   selection = new SelectionModel<User>(true, []);

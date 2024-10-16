@@ -46,6 +46,8 @@ import { LoaderComponent } from '../../../shared/components/loader/loader.compon
 export default class TaskListComponent implements OnInit, AfterViewInit {
   loading = false;
   searchTerm: string = '';
+  isAdmin: boolean = false;
+
 
   displayedColumns: string[] = ['select', 'name', 'status', 'actions'];
   dataSource = new MatTableDataSource<Task>([]);
@@ -65,6 +67,7 @@ export default class TaskListComponent implements OnInit, AfterViewInit {
     this.sharedService.elementCreated$.subscribe(() => {
       this.onLoad();
     });
+    this.isAdmin = this.authService.isAdmin();
   }
 
   ngAfterViewInit() {
